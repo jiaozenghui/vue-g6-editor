@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-15 17 32 32" style="enable-background:new -15 17 32 32;" xml:space="preserve" width="50" height="50">
+<style type="text/css">
+	.st0{fill:url(#XMLID_2_);}
+	.st1{fill:url(#XMLID_3_);}
+	.st2{fill:url(#XMLID_4_);}
+	.st3{fill:#8CFFD5;}
+	.st4{fill:#FFFFFF;}
+</style>
+<g id="图层_2">
+</g>
+<g>
+	
+		<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="-7451.9746" y1="30.1846" x2="-7419.9746" y2="30.1846" gradientTransform="matrix(-1 0 0 1 -7434.9746 0)">
+		<stop  offset="0" style="stop-color:#00C3FF"/>
+		<stop  offset="1" style="stop-color:#1720A4"/>
+	</linearGradient>
+	<polygon id="XMLID_44_" class="st0" points="17,30.2 1,20.9 -15,30.2 1,39.4 	"/>
+	
+		<linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="-7435.9746" y1="38.0456" x2="-7419.9746" y2="38.0456" gradientTransform="matrix(-1 0 0 1 -7434.9746 0)">
+		<stop  offset="0" style="stop-color:#00C3FF"/>
+		<stop  offset="1" style="stop-color:#1720A4"/>
+	</linearGradient>
+	<polygon id="XMLID_43_" class="st1" points="-15,30.2 -15,36.7 1,45.9 1,39.4 	"/>
+	
+		<linearGradient id="XMLID_4_" gradientUnits="userSpaceOnUse" x1="-7451.9746" y1="38.0456" x2="-7435.9746" y2="38.0456" gradientTransform="matrix(-1 0 0 1 -7434.9746 0)">
+		<stop  offset="0" style="stop-color:#1720A4"/>
+		<stop  offset="1" style="stop-color:#00C3FF"/>
+	</linearGradient>
+	<polygon id="XMLID_42_" class="st2" points="17,30.2 17,36.7 1,45.9 1,39.4 	"/>
+	<polygon id="XMLID_41_" class="st3" points="-2.4,40 -11.6,34.8 -11.6,36.1 -2.4,41.3 	"/>
+</g>
+<path class="st4" d="M1.7,25.4L-3,25.1l1.1,1.9l1.2-0.6l4.2,1.6l1.2-0.6l-4.2-1.6L1.7,25.4z M-3.3,27.8L-8,27.4l1.1,2l1.2-0.6
+	l4.1,1.8l1.2-0.6l-4.1-1.7L-3.3,27.8z M4.8,32.3l4.7,0.3l-1.1-2.1l-1.2,0.6L3,29.4L1.8,30L6,31.7L4.8,32.3z M2,33.7l-4.1-1.8
+	l-1.2,0.6l4.1,1.8l-1.2,0.6l4.7,0.4l-1.1-2.2L2,33.7z"/>
+</svg>
