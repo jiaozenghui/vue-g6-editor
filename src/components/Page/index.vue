@@ -62,7 +62,7 @@ export default {
           mulitSelect: ["mulit-select"],
           addEdge: ["add-edge"],
           moveNode:[ "drag-item"],
-          changeNodeSize: ['adjust-item-size']
+          //changeNodeSize: ['adjust-item-size']
         }
       });
       const { editor, command } = this.$parent;
