@@ -42,6 +42,7 @@ const customNode = {
             radius: [4, 0, 0, 4]
           }
         }); */
+        
         group.addShape("image", {
           attrs: {
             x: offsetX + 8 ,
@@ -72,14 +73,24 @@ const customNode = {
               fill:'#fff',
               radius: 4
             }
-        });
+          });
+          let img = cfg.backImage;
+          if (window.location.href.indexOf('topology/page/view')>-1) {
+            if (cfg.node_type == 'componany'&&cfg.node_id <10 || cfg.node_type == 'router'&&cfg.node_id <5) {
+              img = cfg.warn;
+            } else if (cfg.node_type == 'datacenter'&&cfg.node_id <6) {
+              img = cfg.alert;
+            } else if (cfg.node_type == 'switch1'&&cfg.node_id <5) {
+              img = cfg.alert;
+            }
+          }
           group.addShape("image", {
             attrs: {
               x: offsetX,
               y: offsetY,
               width: width,
               height: height,
-              img: cfg.backImage,
+              img: img,
               clip: clip
             }
           });
@@ -179,60 +190,71 @@ const customNode = {
         return shape;
       },
       afterDraw: function afterDraw(cfg, group) {
+        cfg.color = '#6cbcf6';
         if (window.location.href.indexOf('topology/page/view')>-1) {
-        var r = 10 / 2;
-        const width = cfg.width;
-        const height = cfg.height;
-        var back1 = group.addShape('circle', {
-          zIndex: 1,
-          attrs: {
-            x: 0,
-            y:  -height/2,
-            r: r,
-            fill: cfg.color,
-            opacity: 0.6
+          if (cfg.node_type == 'componany'&&cfg.node_id <10 || cfg.node_type == 'router'&&cfg.node_id <5) {
+            cfg.color = '#AA8333';
+            draw();
+          } else if (cfg.node_type == 'datacenter'&&cfg.node_id <6 ||cfg.node_type == 'switch1'&&cfg.node_id <5) {
+            cfg.color = '#f80811';
+            draw()
           }
-        });
-        var back2 = group.addShape('circle', {
-          zIndex: 2,
-          attrs: {
-            x: 0,
-            y:  -height/2,
-            r: r,
-            fill: cfg.color, // 为了显示清晰，随意设置了颜色
-            opacity: 0.6
-          }
-        });
-  
-        var back3 = group.addShape('circle', {
-          zIndex: 3,
-          attrs: {
-            x: 0,
-            y:  -height/2,
-            r: r,
-            fill: cfg.color,
-            opacity: 0.6
-          }
-        });
-        group.sort(); // 排序，根据zIndex 排序
-        back1.animate({ // 逐渐放大，并消失
-          r: r + 10,
-          opacity: 0.1,
-          repeat: true // 循环
-        }, 3000, 'easeCubic', null, 0); // 无延迟
-  
-        back2.animate({ // 逐渐放大，并消失
-          r: r + 10,
-          opacity: 0.1,
-          repeat: true // 循环
-        }, 3000, 'easeCubic', null, 1000); // 1 秒延迟
-  
-        back3.animate({ // 逐渐放大，并消失
-          r: r + 10,
-          opacity: 0.1,
-          repeat: true // 循环
-        }, 3000, 'easeCubic', null, 2000); // 2 秒延迟
-      }
+          function draw() {
+            var r = 10 / 2;
+            const width = cfg.width;
+            const height = cfg.height;
+            var back1 = group.addShape('circle', {
+              zIndex: 1,
+              attrs: {
+                x: 0,
+                y:  -height/2,
+                r: r,
+                fill: cfg.color,
+                opacity: 0.6
+              }
+            });
+            var back2 = group.addShape('circle', {
+              zIndex: 2,
+              attrs: {
+                x: 0,
+                y:  -height/2,
+                r: r,
+                fill: cfg.color, // 为了显示清晰，随意设置了颜色
+                opacity: 0.6
+              }
+            });
+      
+            var back3 = group.addShape('circle', {
+              zIndex: 3,
+              attrs: {
+                x: 0,
+                y:  -height/2,
+                r: r,
+                fill: cfg.color,
+                opacity: 0.6
+              }
+            });
+            group.sort(); // 排序，根据zIndex 排序
+            back1.animate({ // 逐渐放大，并消失
+              r: r + 10,
+              opacity: 0.1,
+              repeat: true // 循环
+            }, 3000, 'easeCubic', null, 0); // 无延迟
+      
+            back2.animate({ // 逐渐放大，并消失
+              r: r + 10,
+              opacity: 0.1,
+              repeat: true // 循环
+            }, 3000, 'easeCubic', null, 1000); // 1 秒延迟
+      
+            back3.animate({ // 逐渐放大，并消失
+              r: r + 10,
+              opacity: 0.1,
+              repeat: true // 循环
+            }, 3000, 'easeCubic', null, 2000); // 2 秒延迟
+          } 
+
+        }
       },
       //设置状态
       setState(name, value, item) {

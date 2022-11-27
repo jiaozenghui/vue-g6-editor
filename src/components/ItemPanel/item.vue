@@ -38,7 +38,10 @@ import eventBus from "@/utils/eventBus";
 import okSvg from "@/assets/icons/ok.svg";
 import bgImg from "@/assets/bg.jpg";
 import sub4Svg from "@/assets/icons/sub4-green.svg";
+import sub4alertSvg from "@/assets/icons/sub4-red.svg";
 import companySvg from "@/assets/icons/company-green.svg";
+import companyAlertSvg from "@/assets/icons/company-red.svg";
+import companyWarnSvg from "@/assets/icons/company-yellow.svg";
 import acSvg from "@/assets/icons/ac-green.svg";
 import agentserverSvg from "@/assets/icons/agentserver-green.svg";
 import appserverSvg from "@/assets/icons/appserver-green.svg";
@@ -55,7 +58,13 @@ import loadbalanceSvg from "@/assets/icons/loadbalance-green.svg";
 import mailserverSvg from "@/assets/icons/mailserver-green.svg";
 import pingSvg from "@/assets/icons/ping-green.svg";
 import routerSvg from "@/assets/icons/router-green.svg";
+import routerWarnSvg from "@/assets/icons/router-yellow.svg";
+import routerAlertSvg from "@/assets/icons/router-red.svg";
+
 import routerHubSvg from "@/assets/icons/router-hub-green.svg";
+import routerHubWarnSvg from "@/assets/icons/router-hub-yellow.svg";
+import routerHubAlertSvg from "@/assets/icons/router-hub-red.svg";
+
 import routerwallblueSvg from "@/assets/icons/routerwallblue-green.svg";
 import serverSvg from "@/assets/icons/server-green.svg";
 
@@ -63,6 +72,8 @@ import storageSvg from "@/assets/icons/storage-green.svg";
 import sublogicSvg from "@/assets/icons/sublogic-green.svg";
 
 import switch1Svg from "@/assets/icons/switch1-green.svg";
+import switch1AlertSvg from "@/assets/icons/switch1-red.svg";
+
 import switch2Svg from "@/assets/icons/switch2-green.svg";
 import switch3Svg from "@/assets/icons/switch3-green.svg";
 import switch7blueSvg from "@/assets/icons/switch7blue-green.svg";
@@ -96,6 +107,7 @@ export default {
           color: "#1890ff",
           backImage:
           sub4Svg,
+          alert: sub4alertSvg,
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
@@ -117,6 +129,8 @@ export default {
           companySvg,
           stateImage: okSvg,
           //backImage: companySvg,
+          warn: companyWarnSvg,
+          alert:companyAlertSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
           isDoingStart: true,
@@ -388,6 +402,8 @@ export default {
           backImage:
           routerSvg,
           stateImage: okSvg,
+          warn: routerWarnSvg,
+          alert:routerAlertSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
           isDoingEnd: true
@@ -423,6 +439,8 @@ export default {
           color: "#1890ff",
           backImage:
           routerHubSvg,
+          warn: routerHubWarnSvg,
+          alert:routerHubAlertSvg,
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
@@ -497,6 +515,7 @@ export default {
           color: "#1890ff",
           backImage:
           switch1Svg,
+          alert:switch1AlertSvg,
           stateImage: okSvg,
           inPoints: [[0, 0.5]],
           outPoints: [[1, 0.5]],
@@ -664,7 +683,8 @@ export default {
           outPoints: [[1, 0.5]],
           isDoingEnd: true
         },
-      ]
+      ],
+      index:0
     };
   },
   created() {
@@ -682,6 +702,7 @@ export default {
       Object.assign(data, item);
       data.offsetX = this.offsetX;
       data.offsetY = this.offsetY;
+      
       if (this.page) {
         const graph = this.page.graph;
         // const size = e.target.dataset.size.split("*");
@@ -692,6 +713,10 @@ export default {
         data.width = item.width;
         data.height = item.height;
         data.type = "node";
+        const nodes = graph.findAll('node', node => {
+          return true;
+        });
+        data['node_id'] = nodes.length;
         this.command.executeCommand("add", [data]);
       }
     },
