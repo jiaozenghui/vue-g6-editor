@@ -189,7 +189,7 @@ const customNode = {
         // 添加文本、更多图形
         return shape;
       },
-      afterDraw: function afterDraw(cfg, group) {
+      afterDraw(cfg, group) {
         cfg.color = '#6cbcf6';
         if (window.location.href.indexOf('topology/page/view')>-1) {
           if (cfg.node_type == 'componany'&&cfg.node_id <10 || cfg.node_type == 'router'&&cfg.node_id <5) {

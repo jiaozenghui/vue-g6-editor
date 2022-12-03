@@ -110,15 +110,15 @@ const customEdge = {
             path: path,
             stroke: '#b8c3ce',
             lineAppendWidth: 10,
-            endArrow: {
+/*             endArrow: {
               path: endArrowPath,
-            }
+            } */
           }
         });
         return keyShape
       },
-      afterDraw(cfg, group) {
-/*         if (cfg.source.getModel().isDoingStart && cfg.target.getModel().isDoingEnd) {
+/*       afterDraw(cfg, group) {
+        if (cfg.source.getModel().isDoingStart && cfg.target.getModel().isDoingEnd) {
           const shape = group.get('children')[0];
           const length = shape.getTotalLength(); // G 增加了 totalLength 的接口
           let totalArray = [];
@@ -136,8 +136,84 @@ const customEdge = {
             },
             repeat: true
           }, 3000);
-        } */
+        }
+      }, */
+      afterDraw(cfg, group) {
+        if (window.location.href.indexOf('topology/page/view') >-1) {
+          // 获得当前边的第一个图形，这里是边本身的 path
+          const shape = group.get('children')[0];
+          // 边 path 的起点位置
+          const startPoint = shape.getPoint(0);
+          let startP = shape.getPoint(1);
+          // 添加红色 circle 图形
+          let circle = group.addShape('circle', {
+            attrs: {
+              x: startPoint.x,
+              y: startPoint.y,
+              fill: '#63eca0',
+              r: 3
+            }
+          });
+      
+          // 对红色圆点添加动画
+          circle.animate({
+            // 动画重复
+            repeat: false,
+            // 每一帧的操作，入参 ratio：这一帧的比例值（Number）。返回值：这一帧需要变化的参数集（Object）。
+            onFrame(ratio) {
+              // 根据比例值，获得在边 path 上对应比例的位置。
+              const tmpPoint = shape.getPoint(ratio);
+              // 返回需要变化的参数集，这里返回了位置 x 和 y
+              return {
+                x: tmpPoint.x,
+                y: tmpPoint.y
+              };
+            }
+          }, 9000);
+
+      let index=0;
+      setInterval(() => {
+          index++;
+          // 对红色圆点添加动画
+          index%2==0&&circle.animate({
+            // 动画重复
+            repeat: false,
+            // 每一帧的操作，入参 ratio：这一帧的比例值（Number）。返回值：这一帧需要变化的参数集（Object）。
+            onFrame(ratio) {
+              // 根据比例值，获得在边 path 上对应比例的位置。
+              const tmpPoint = shape.getPoint(ratio);
+              // 返回需要变化的参数集，这里返回了位置 x 和 y
+              return {
+                x: tmpPoint.x,
+                y: tmpPoint.y
+              };
+            }
+          }, 9000);
+
+          // 对红色圆点添加动画
+          index%2==1&&circle.animate({
+            // 动画重复
+            repeat: false,
+            // 每一帧的操作，入参 ratio：这一帧的比例值（Number）。返回值：这一帧需要变化的参数集（Object）。
+            onFrame(ratio) {
+              // 根据比例值，获得在边 path 上对应比例的位置。
+              const tmpPoint = shape.getPoint(ratio);
+              // 返回需要变化的参数集，这里返回了位置 x 和 y
+              return {
+                x:  startPoint.x + (startP.x- tmpPoint.x),
+                y: startPoint.y + (startP.y- tmpPoint.y)
+              };
+            }
+          }, 9000); // 一次动画的时间长度
+          
+      }, 9000);
+     
+
+          
+
+        }
       },
+
       setState(name, value, item) {
         const group = item.getContainer();
         const shape = group.get("children")[0];
@@ -158,7 +234,8 @@ const customEdge = {
             }
             break;
         }
-      }
+      },
+      
     });
     G6.registerEdge('link-edge', {
       draw(cfg, group) {

@@ -1,3 +1,5 @@
+import Util from '@antv/g6/src/util'
+import eventBus from "@/utils/eventBus";
 let tooltipEl=null;
 export default {
     
@@ -111,13 +113,45 @@ export default {
         this.hideTooltip();
     },
     onMousedown(e) {
+
         if(e.target._attrs.isOutPoint ||e.target._attrs.isOutPointOut){
             this.graph.setMode('addEdge')
-        }else if (e.target._attrs.dragPoints) {
-            //this.graph.setMode('changeNodeSize')
         }else{
             this.graph.setMode('moveNode')
         }
+        const self = this;
+        const item = e.item;
+        const graph = self.graph;
+        const autoPaint = graph.get('autoPaint');
+        graph.setAutoPaint(false);
+        const selectedEdges = graph.findAllByState('edge', 'selected');
+        Util.each(selectedEdges, edge => {
+            graph.setItemState(edge, 'selected', false);
+        });
+        if (!self.keydown || !self.multiple) {
+            const selected = graph.findAllByState('node', 'selected');
+            Util.each(selected, node => {
+                if (node !== item) {
+                    graph.setItemState(node, 'selected', false);
+                }
+            });
+        }
+        if (item.hasState('selected')) {
+            if (self.shouldUpdate.call(self, e)) {
+                graph.setItemState(item, 'selected', false);
+            }
+          
+            eventBus.$emit('nodeselectchange', { target: item, select: false });
+        } else {
+            if (self.shouldUpdate.call(self, e)) {
+                graph.setItemState(item, 'selected', true);
+            }
+            eventBus.$emit('nodeselectchange', { target: item, select: true });
+        }
+        graph.setAutoPaint(autoPaint);
+
+
+
     },
 
 };

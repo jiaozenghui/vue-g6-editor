@@ -18,7 +18,7 @@ export default {
         };
     },
     
-    onClick(e) {
+/*     onClick(e) {
         const self = this;
         const item = e.item;
         const graph = self.graph;
@@ -50,7 +50,7 @@ export default {
         }
         graph.setAutoPaint(autoPaint);
         graph.paint();
-    },
+    }, */
     onCanvasClick() {
         const graph = this.graph;
         const autoPaint = graph.get('autoPaint');
