@@ -1,3 +1,4 @@
+import { construct } from 'core-js/fn/reflect';
 import merge from 'lodash/merge';
 import pick from 'lodash/pick';
 import uniqueId from 'lodash/uniqueId';
@@ -19,6 +20,10 @@ const  getBox=(x, y, width, height)=> {
   }
 }
 
+const lineType=(editor)=> {
+  return editor.lineType;
+}
+
 export {
   merge,
   pick,
@@ -26,5 +31,6 @@ export {
   uniqueId,
   upperFirst,
   addListener,
-  getBox
+  getBox,
+  lineType
 };

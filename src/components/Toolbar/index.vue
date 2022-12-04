@@ -54,6 +54,34 @@
     ></i>
     <span class="separator"></span>
     <i
+      data-command="resetLineType"
+      class="command iconfont icon-byangtiaoquxian"
+      :class="graph._cfg.lineType == 0?'activated':''"
+      title="曲线"
+      @click="changeLineMode(0)"
+    ></i>
+    <span class="separator"></span>
+
+    <i
+      data-command="resetLineType"
+      class="command iconfont icon-zhixian"
+      :class="graph._cfg.lineType == 1?'activated':''"
+      title="直线"
+      @click="changeLineMode(1)"
+    ></i>
+    <span class="separator"></span>
+
+    <i
+      data-command="resetLineType"
+      class="command iconfont icon-zhexian"
+      :class="graph._cfg.lineType == 2?'activated':''"
+      title="直角线"
+      @click="changeLineMode(2)"
+    ></i>
+    <span class="separator"></span>
+
+
+    <i
       data-command="toBack"
       class="command iconfont icon-to-back"
       :class="selectedItem?'':'disable'"
@@ -91,7 +119,7 @@
 <script>
 import eventBus from "@/utils/eventBus";
 import Util from "@antv/g6/src/util";
-import { uniqueId, getBox } from "@/utils";
+import { uniqueId, getBox, lineType } from "@/utils";
 export default {
   data() {
     return {
@@ -174,6 +202,11 @@ export default {
         this.command.executeCommand("delete", this.selectedItem);
         this.selectedItem = null;
       }
+    },
+    changeLineMode(lineType) {
+      // 0 曲线 2 直线 3 直角线 
+      this.graph._cfg.lineType = lineType;
+
     },
     getFormatPadding() {
       return Util.formatPadding(this.graph.get("fitViewPadding"));
@@ -298,11 +331,6 @@ export default {
     },
 
     consoleData() {
-/*       window.localStorage.setItem('graph-data', JSON.stringify(this.graph.save()))
-      let fname = this.$route.params.pageId + '.json';
-      var content = JSON.stringify(this.graph.save());
-      var blob = new Blob([content], {type: "text/plain;charset=utf-8"});
-      saveAs(blob, `${fname}`); */
 
       let pages = JSON.parse(window.localStorage.getItem('tpages'));
       pages.forEach(item=>{
@@ -321,10 +349,10 @@ export default {
 <style scoped>
 .toolbar {
   box-sizing: border-box;
-  padding: 8px 0px;
   width: 100%;
   border: 1px solid #e9e9e9;
   height: 42px;
+  line-height: 42px;
   z-index: 3;
   box-shadow: 0px 8px 12px 0px rgba(0, 52, 107, 0.04);
   position: absolute;
@@ -336,13 +364,15 @@ export default {
   box-sizing: border-box;
   width: 27px;
   height: 27px;
+  line-height: 27px;
   margin: 0px 6px;
   border-radius: 2px;
   padding-left: 4px;
   display: inline-block;
   border: 1px solid rgba(2, 2, 2, 0);
+  cursor: pointer;
 }
-.toolbar .command:hover {
+.toolbar .command:hover, .toolbar .command.activated {
   cursor: pointer;
   border: 1px solid #e9e9e9;
 }

@@ -92,6 +92,24 @@ const customEdge = {
             ]
           ]
         }
+
+        if (cfg.lineType == 2) {
+          path=  [
+            ['M', start.x, start.y],
+            ['L', end.x / 3 + (2 / 3) * start.x, start.y],
+            ['L', end.x / 3 + (2 / 3) * start.x, end.y],
+            ['L', end.x, end.y],
+          ]
+        } else if(cfg.lineType == 1) {
+          path = [
+            ['M', start.x, start.y],
+            ['L', end.x, end.y],
+          ]
+        }
+
+        
+
+
         let lineWidth = 1;
         lineWidth = lineWidth > MIN_ARROW_SIZE ? lineWidth : MIN_ARROW_SIZE;
         const width = lineWidth * 10 / 3;

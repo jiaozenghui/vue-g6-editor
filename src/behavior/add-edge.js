@@ -1,6 +1,6 @@
 
 import eventBus from "@/utils/eventBus";
-import { uniqueId } from '@/utils'
+import { uniqueId, lineType } from '@/utils'
 let startPoint = null
 let startItem = null
 let endPoint = {}
@@ -51,6 +51,7 @@ export default {
                         start: startPoint,
                         end: endPoint,
                         shape: 'customEdge',
+                        lineType: this.graph._cfg.lineType,
                         type: 'edge'
                     }
                     eventBus.$emit('addItem', model)

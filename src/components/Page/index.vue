@@ -47,6 +47,11 @@ export default {
         container: "graph-container",
         height: height,
         width: width,
+        lineType:0,
+        layout: {
+          type: 'radial',
+          unitRadius: 50,
+        },
         modes: {
           // 支持的 behavior
           default: [
@@ -62,6 +67,7 @@ export default {
           mulitSelect: ["mulit-select"],
           addEdge: ["add-edge"],
           moveNode:[ "drag-item"],
+
           //changeNodeSize: ['adjust-item-size']
         }
       });
