@@ -1,0 +1,358 @@
+{
+  "app": {
+    "name": "Alain",
+    "description": "Ng-zorro admin panel front-end framework"
+  },
+  "user": {
+    "name": "Admin",
+    "avatar": "./assets/tmp/img/avatar.jpg",
+    "email": "cipchk@qq.com"
+  },
+  "menu": [
+    {
+      "text": "主导航",
+      "i18n": "menu.main",
+      "group": true,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "Dashboard",
+          "i18n": "Dashboard",
+          "icon": "anticon-rocket",
+          "link": "/dashboard/v1"
+        },
+        {
+          "text": "拓扑管理",
+          "i18n": "拓扑管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "拓扑展示",
+              "link": "/toplogy-mgmt/topology",
+              "i18n": "拓扑展示"
+            },
+            {
+              "text": "拓扑设置",
+              "link": "/toplogy-mgmt/settings",
+              "i18n": "拓扑设置"
+            }
+          ]
+        },
+        {
+          "text": "链路图",
+          "i18n": "链路图",
+          "icon": "anticon-rocket",
+          "link": "/link-diagram/main"
+        },
+        {
+          "text": "设备显控",
+          "i18n": "设备显控",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "资源列表",
+              "link": "/equipment/resourceList",
+              "i18n": "资源列表"
+            },
+            {
+              "text": "添加资源",
+              "link": "/equipment/resourceDiscovery",
+              "i18n": "添加资源"
+            },
+            {
+              "text": "业务管理",
+              "link": "/equipment/serviceMng",
+              "i18n": "业务管理"
+            }
+          ]
+        },
+        {
+          "text": "动环监控",
+          "i18n": "动环监控",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "空调监控",
+              "link": "/dynamic-loop-monitor/air-conditioner",
+              "i18n": "空调监控"
+            },
+            {
+              "text": "湿度湿度",
+              "link": "/dynamic-loop-monitor/humidity",
+              "i18n": "湿度湿度"
+            },
+            {
+              "text": "UPS监控",
+              "link": "/dynamic-loop-monitor/ups",
+              "i18n": "UPS监控"
+            },
+            {
+              "text": "配电柜",
+              "link": "/dynamic-loop-monitor/ggd",
+              "i18n": "配电柜"
+            },
+            {
+              "text": "漏水监测",
+              "link": "/dynamic-loop-monitor/leakage-detection",
+              "i18n": "漏水监测"
+            },
+            {
+              "text": "烟感监测",
+              "link": "/dynamic-loop-monitor/smoke-detection",
+              "i18n": "烟感监测"
+            },
+            {
+              "text": "门禁管理",
+              "link": "/dynamic-loop-monitor/access-control",
+              "i18n": "门禁管理"
+            },
+            {
+              "text": "视频实时监控",
+              "link": "/dynamic-loop-monitor/video-realtime",
+              "i18n": "视频实时监控"
+            }
+          ]
+        },
+        {
+          "text": "告警管理",
+          "i18n": "告警管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "告警查询",
+              "link": "/alarm-management/alarm-information",
+              "i18n": "告警查询"
+            },
+            {
+              "text": "告警策略",
+              "link": "/alarm-management/alarm-strategy",
+              "i18n": "告警策略"
+            },
+            {
+              "text": "告警统计",
+              "link": "/alarm-management/alarm-statistics",
+              "i18n": "告警统计"
+            },
+            {
+              "text": "告警配置",
+              "link": "/alarm-management/alarm-configuration/restrain",
+              "i18n": "告警配置",
+              "children": [
+                {
+                  "text": "告警抑制",
+                  "link": "/alarm-management/alarm-configuration/restrain",
+                  "i18n": "告警抑制",
+                  "hide": false
+                },
+                {
+                  "text": "告警升级",
+                  "link": "/alarm-management/alarm-configuration/upgrade",
+                  "i18n": "告警升级",
+                  "hide": false
+                },
+                {
+                  "text": "告警通知",
+                  "link": "/alarm-management/alarm-configuration/notification",
+                  "i18n": "告警通知",
+                  "hide": false
+                },
+                {
+                  "text": "告警渠道",
+                  "link": "/alarm-management/alarm-configuration/channel",
+                  "i18n": "告警渠道",
+                  "hide": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "资产管理",
+          "i18n": "资产管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "资产列表",
+              "link": "/asset-mgmt/list",
+              "i18n": "资产列表"
+            },
+            {
+              "text": "资产流转管理",
+              "link": "/asset-mgmt/asset-transfer",
+              "i18n": "资产流转管理"
+            },
+            {
+              "text": "资产模板管理",
+              "link": "/asset-mgmt/asset-template",
+              "i18n": "资产模板管理"
+            },
+            {
+              "text": "台账模板",
+              "link": "/asset-mgmt/account-template",
+              "i18n": "台账模板"
+            }
+          ]
+        },
+        {
+          "text": "指令控制",
+          "i18n": "指令控制",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "设备操作",
+              "link": "/command-control/builtin-script",
+              "i18n": "设备操作"
+            },
+            {
+              "text": "设备访问列表",
+              "link": "/command-control/equipment-list",
+              "i18n": "设备访问列表"
+            },
+            {
+              "text": "指令工具集",
+              "link": "/command-control/command-tool",
+              "i18n": "指令工具集"
+            },
+            {
+              "text": "指令操作记录",
+              "link": "/command-control/operation-record",
+              "i18n": "指令操作记录"
+            }
+          ]
+        },
+        {
+          "text": "自动化巡检",
+          "i18n": "menu.automated-inspection",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "巡检计划",
+              "link": "/automated-inspection/patrol-scheme",
+              "i18n": "menu.patrol-scheme"
+            },
+            {
+              "text": "巡检任务",
+              "link": "/automated-inspection/inspection-task",
+              "i18n": "menu.patrol-task"
+            }
+          ]
+        },
+        {
+          "text": "统计分析",
+          "i18n": "统计分析",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "资源状态",
+              "link": "/statistic-analysis/resource-status",
+              "i18n": "资源状态"
+            },
+            {
+              "text": "指令状态",
+              "link": "/statistic-analysis/command-status",
+              "i18n": "指令状态"
+            },
+            {
+              "text": "设备状态",
+              "link": "/statistic-analysis/device-status",
+              "i18n": "设备状态"
+            },
+            {
+              "text": "网络状态",
+              "link": "/statistic-analysis/net-status",
+              "i18n": "网络状态"
+            },
+            {
+              "text": "设备故障",
+              "link": "/statistic-analysis/device-failure",
+              "i18n": "设备故障"
+            }
+          ]
+        },
+        {
+          "text": "知识库管理",
+          "i18n": "知识库管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "知识清单",
+              "link": "/knowledge-mgmt/list",
+              "i18n": "知识清单"
+            }
+          ]
+        },
+        {
+          "text": "值班管理",
+          "i18n": "值班管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "值班列表",
+              "link": "/duty-mgmt/list",
+              "i18n": "值班列表"
+            },
+            {
+              "text": "日志模板",
+              "link": "/duty-mgmt/log-template",
+              "i18n": "日志模板"
+            }
+          ]
+        },
+        {
+          "text": "IP地址管理",
+          "i18n": "IP地址管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "IP地址管理",
+              "link": "/ip-address-mgmt/ip-address",
+              "i18n": "IP地址管理"
+            }
+          ]
+        },
+        {
+          "text": "日志管理",
+          "i18n": "日志管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "操作日志",
+              "link": "/log-mgmt/list",
+              "i18n": "操作日志"
+            }
+          ]
+        },
+        {
+          "text": "用户管理",
+          "i18n": "用户管理",
+          "icon": "anticon-rocket",
+          "shortcutRoot": true,
+          "children": [
+            {
+              "text": "用户管理",
+              "link": "/user-mgmt/user",
+              "i18n": "用户管理"
+            },
+            {
+              "text": "角色管理",
+              "link": "/user-mgmt/role",
+              "i18n": "角色管理"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

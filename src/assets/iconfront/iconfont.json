@@ -1,0 +1,30 @@
+{
+  "id": "3807243",
+  "name": "fuzhou",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "22383144",
+      "name": "b样条曲线",
+      "font_class": "byangtiaoquxian",
+      "unicode": "eddb",
+      "unicode_decimal": 60891
+    },
+    {
+      "icon_id": "22383622",
+      "name": "直线",
+      "font_class": "zhixian",
+      "unicode": "edf8",
+      "unicode_decimal": 60920
+    },
+    {
+      "icon_id": "26505807",
+      "name": "折线",
+      "font_class": "zhexian",
+      "unicode": "ee42",
+      "unicode_decimal": 60994
+    }
+  ]
+}

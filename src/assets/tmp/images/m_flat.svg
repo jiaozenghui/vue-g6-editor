@@ -1,0 +1,52 @@
+<svg width="1045" height="643" xmlns="http://www.w3.org/2000/svg"><defs data-v-448d5394=""><filter id="border-box-04-filterId-5moa9cc8ipc000" height="150%" width="150%" x="-25%" y="-25%" data-v-448d5394=""><feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" data-v-448d5394=""></feMorphology><feGaussianBlur in="thicken" stdDeviation="3" result="blurred" data-v-448d5394=""></feGaussianBlur><feFlood flood-color="#336165FF" result="glowColor" data-v-448d5394=""></feFlood><feComposite in="glowColor" in2="blurred" operator="in" result="softGlowColored" data-v-448d5394=""></feComposite><feMerge data-v-448d5394=""><feMergeNode in="softGlowColored" data-v-448d5394=""></feMergeNode><feMergeNode in="SourceGraphic" data-v-448d5394=""></feMergeNode></feMerge></filter></defs><polygon fill="#00000000" points="
+        20, 32 397.5, 32 417.5, 53
+        627.5, 53 647.5, 32
+        1025, 32 1037, 48 1037, 618 1025, 635
+        20, 635 8, 618 8, 50
+      " data-v-448d5394=""></polygon><polyline fill="#00000000" stroke="#8aaafb" filter="url(#border-box-04-filterId-5moa9cc8ipc000)" points="
+          397.5, 30
+          20, 30 7, 50 7, 288
+          13, 293 13, 373
+          7, 378 7, 616
+          20, 636 1025, 636 1038, 616
+          1038, 378 1032, 373
+          1032, 293 1038, 288
+          1038, 50 1025, 30 647.5, 30
+          627.5, 7 417.5, 7
+          397.5, 30 417.5, 52
+          627.5, 52 647.5, 30
+        " data-v-448d5394=""></polyline><polygon stroke="#8aaafb" fill="transparent" points="
+          642.5, 30 626.5, 11
+          620.5, 11 639.5, 34
+        " data-v-448d5394=""></polygon><polygon stroke="#8aaafb" fill="transparent" points="
+          402.5, 30 419.5, 49
+          425.5, 49 405.5, 26
+        " data-v-448d5394=""></polygon><polygon stroke="#8aaafb" fill="#336165FF" filter="url(#border-box-04-filterId-5moa9cc8ipc000)" points="
+          636.5, 37 615.5, 11
+          420.5, 11 408.5, 23
+          430.5, 49 625.5, 49
+        " data-v-448d5394=""></polygon><polygon filter="url(#border-box-04-filterId-5moa9cc8ipc000)" fill="#8aaafb" opacity="1" points="
+          387.5, 37 366.5, 37
+          372.5, 46 393.5, 46
+        " data-v-448d5394=""><animate attributeName="opacity" values="1;0.7;1" dur="2s" begin="0s" repeatCount="indefinite" data-v-448d5394=""></animate></polygon><polygon filter="url(#border-box-04-filterId-5moa9cc8ipc000)" fill="#8aaafb" opacity="0.7" points="
+          357.5, 37 336.5, 37
+          342.5, 46 363.5, 46
+        " data-v-448d5394=""><animate attributeName="opacity" values="0.7;0.4;0.7" dur="2s" begin="0s" repeatCount="indefinite" data-v-448d5394=""></animate></polygon><polygon filter="url(#border-box-04-filterId-5moa9cc8ipc000)" fill="#8aaafb" opacity="0.5" points="
+          327.5, 37 306.5, 37
+          312.5, 46 333.5, 46
+        " data-v-448d5394=""><animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" begin="0s" repeatCount="indefinite" data-v-448d5394=""></animate></polygon><polygon filter="url(#border-box-04-filterId-5moa9cc8ipc000)" fill="#8aaafb" opacity="1" points="
+          677.5, 37 656.5, 37
+          650.5, 46 671.5, 46
+        " data-v-448d5394=""><animate attributeName="opacity" values="1;0.7;1" dur="2s" begin="0s" repeatCount="indefinite" data-v-448d5394=""></animate></polygon><polygon filter="url(#border-box-04-filterId-5moa9cc8ipc000)" fill="#8aaafb" opacity="0.7" points="
+          707.5, 37 686.5, 37
+          680.5, 46 701.5, 46
+        " data-v-448d5394=""><animate attributeName="opacity" values="0.7;0.4;0.7" dur="2s" begin="0s" repeatCount="indefinite" data-v-448d5394=""></animate></polygon><polygon filter="url(#border-box-04-filterId-5moa9cc8ipc000)" fill="#8aaafb" opacity="0.5" points="
+          737.5, 37 716.5, 37
+          710.5, 46 731.5, 46
+        " data-v-448d5394=""><animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" begin="0s" repeatCount="indefinite" data-v-448d5394=""></animate></polygon><text x="522.5" y="32" fill="#fff" font-size="18" text-anchor="middle" dominant-baseline="middle" data-v-448d5394="">机房平面图</text><polygon fill="#8aaafb" filter="url(#border-box-04-filterId-5moa9cc8ipc000)" points="
+          7, 291 11, 295
+          11, 371 7, 375
+        " data-v-448d5394=""></polygon><polygon fill="#8aaafb" filter="url(#border-box-04-filterId-5moa9cc8ipc000)" points="
+          1038, 291 1034, 295
+          1034, 371 1038, 375
+        " data-v-448d5394=""></polygon></svg>

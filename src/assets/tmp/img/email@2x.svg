@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="54px" viewBox="0 0 68 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon2@1.5x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="68" height="54" rx="5.66666667"></rect>
+        <linearGradient x1="29.1979222%" y1="59.0020571%" x2="90.0389988%" y2="78.7418234%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#D8D8D8" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="10.0471684%" y1="55.094719%" x2="25.7027169%" y2="82.0900963%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FEFEFE" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <path d="M-10.0602916,-11.6019634 L31.4985673,25.1178877 C32.9272783,26.3802867 35.0727217,26.3802867 36.5014327,25.1178877 L36.5014327,25.1178877 L78.059721,-11.6016581 C80.0406319,-9.37340611 79.9600656,-5.95889939 77.8218383,-3.82727158 C77.7413337,-3.74701542 77.6584324,-3.66919985 77.5732468,-3.59393052 L37.752149,31.5917109 C35.6090825,33.4853094 32.3909175,33.4853094 30.247851,31.5917109 L-9.57324683,-3.59393052 C-11.9185062,-5.66618521 -12.1398203,-9.24728794 -10.0675656,-11.5925473 L-10.0602916,-11.6019634 Z" id="path-5"></path>
+        <filter x="-8.3%" y="-10.1%" width="116.5%" height="133.6%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.303668478   0 0 0 0 0.0650561109   0 0 0 0 0.0790236641  0 0 0 0.171328671 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="CMO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="F-1-2-1CMO平台管理-配置管理-通知渠道管理" transform="translate(-280.000000, -385.000000)">
+            <g id="编组-4备份" transform="translate(234.000000, 338.000000)">
+                <g id="编组" transform="translate(30.000000, 24.000000)">
+                    <rect id="矩形" x="0" y="0" width="100" height="100"></rect>
+                    <g id="形状结合备份" transform="translate(16.000000, 23.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="蒙版" fill="#F2F2F2" xlink:href="#path-1"></use>
+                        <polygon id="路径-3" fill="url(#linearGradient-3)" mask="url(#mask-2)" points="3.30555556 53.281904 36.9028405 26.0628522 68 3.78947368 66.5573198 57.7894737 3.30555556 59.0943519"></polygon>
+                        <polygon id="路径-3备份-2" fill="url(#linearGradient-4)" mask="url(#mask-2)" transform="translate(59.263568, 54.177106) rotate(79.000000) translate(-59.263568, -54.177106) " points="26.8341517 75.933386 60.5159307 48.8147675 91.6929849 26.625664 90.277218 80.4642288 26.8375119 81.7285474"></polygon>
+                        <rect id="矩形" fill="#FA2D39" mask="url(#mask-2)" x="-0.944444444" y="2.84210526" width="6.61111111" height="54" rx="0.944444444"></rect>
+                        <rect id="矩形备份-13" fill="#FA2D39" mask="url(#mask-2)" x="62.3333333" y="2.84210526" width="6.61111111" height="54" rx="0.944444444"></rect>
+                        <g id="形状结合" mask="url(#mask-2)">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                            <use fill="#FA2D39" fill-rule="evenodd" xlink:href="#path-5"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
