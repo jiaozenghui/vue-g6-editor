@@ -5,6 +5,7 @@ export default class Editor {
   constructor(tpageId) {
     this.id = uniqueId();
     this.tPageId = tpageId;
+    this.tPage= {};
   }
   getGrpah() {
     return this.graph
@@ -19,7 +20,7 @@ export default class Editor {
     switch (event) {
       case 'changeNodeData':
         this.graph.refresh()
-        break
+        break;
     }
   }
   add(type, item) {

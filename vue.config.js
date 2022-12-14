@@ -34,7 +34,18 @@ module.exports = {
       warnings: false,
       errors: true
     },
-    proxy: null
+    proxy: {
+      '/v1/topos': {
+        target: 'http://10.121.13.80:30250/',  // 跨域目标主机，自行修改
+        ws: true,  // 代理 websockets
+        changeOrigin: true
+      },
+      '/api/v1/': {
+        target: 'https://10.121.13.80/',
+        changeOrigin: true,
+        secure: false,
+      },
+    }
   },
   configureWebpack: {
 

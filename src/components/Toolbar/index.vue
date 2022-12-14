@@ -112,7 +112,7 @@
       @click="handleAddGroup"
     ></i>
     <i data-command="unGroup" class="command iconfont icon-ungroup disable" title="解组"></i>
-    <el-button @click="consoleData" type="primary">保存布局</el-button>
+    <el-button @click="SaveGraph" type="primary">保存布局</el-button>
   </div>
 </template>
 
@@ -120,11 +120,14 @@
 import eventBus from "@/utils/eventBus";
 import Util from "@antv/g6/src/util";
 import { uniqueId, getBox, lineType } from "@/utils";
+import pageService from './../../utils/pageService'
 export default {
   data() {
     return {
       page: {},
-      graph: {},
+      graph: {
+        _cfg:{}
+      },
       redoList: [],
       undoList: [],
       editor: null,
@@ -330,15 +333,16 @@ export default {
       // this.graph.paint();
     },
 
-    consoleData() {
+    SaveGraph() {
 
-      let pages = JSON.parse(window.localStorage.getItem('tpages'));
-      pages.forEach(item=>{
-        if (this.editor.tPageId == item.page_id) {
-          item.data = this.graph.save();
-        }
-      })
-      window.localStorage.setItem('tpages', JSON.stringify(pages))
+      this.editor.tPage.properties.layout = this.graph.save();
+      let params = this.editor.tPage;
+      delete params.id;
+      delete params.links;
+      delete params.nodes;
+      pageService.updateGraph(this.editor.tPageId, params).then(res=>{
+        
+      });
 
     }
   }

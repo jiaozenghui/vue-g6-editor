@@ -37,6 +37,7 @@ export default {
     this.isDrag = true
     this.nodeEvent = e
     const { item } = e;
+    if (!item) return;
     const graph = this.graph;
 
     this.targets = [];

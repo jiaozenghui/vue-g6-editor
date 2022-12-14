@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     init() {
-      const height =  this.height - 92 
+      const height =  this.height - 105
       const width =  this.width - 400
 
       this.graph = new G6.Graph({
@@ -74,20 +74,19 @@ export default {
       const { editor, command } = this.$parent;
       editor.emit("afterAddPage", { graph: this.graph, command });
 
-      this.readData();
+      //this.readData();
     },
     readData() {
       const { editor } = this.$parent;
-/*       var url = '/topology/api/' + editor.tPageId + '.json';
+      var url = `/v1/topos/graphs/${editor.tPageId
+      }`;
       axios.get(url).then((res) => {
         let data = res.data;
-        if (data) {
-          this.graph.read(data);
+        if (data.Result) {
+          editor.tPage = data.Data;
+          this.graph.read(data.Data.properties.layout);
         }
-      }) */
-      let pages = JSON.parse(window.localStorage.getItem('tpages'));
-        let data = pages.length>0&&pages.filter(item=>item.page_id == editor.tPageId)[0];
-        this.graph.read(data.data);
+      })
     }
   }
 };

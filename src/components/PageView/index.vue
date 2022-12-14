@@ -42,7 +42,7 @@
     },
     methods: {
       init() {
-        const height =  this.height -42;
+        const height =  this.height -60;
         const width =  this.width;
   
         this.graph = new G6.Graph({
@@ -69,7 +69,7 @@
         const { editor, command } = this.$parent;
         editor.emit("afterAddPage", { graph: this.graph, command });
   
-        this.readData();
+        //this.readData();
       },
       bindEvent() {
         const { command } = this.$parent;

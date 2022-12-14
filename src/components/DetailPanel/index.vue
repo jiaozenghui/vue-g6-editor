@@ -17,25 +17,14 @@
             <el-col :span="16">
               <el-input v-model="node.color" />
             </el-col>
-            <el-col :span="8">重要级别</el-col>
-            <el-col :span="16">
-              <el-select v-model="node.level" placeholder="">
-                <el-option label="5级" value="5"></el-option>
-                <el-option label="4级" value="4"></el-option>
-                <el-option label="3级" value="3"></el-option>
-                <el-option label="2级" value="2"></el-option>
-                <el-option label="1级" value="1"></el-option>
-              </el-select>
-            </el-col>
             <el-col :span="8">选择设备</el-col>
             <el-col :span="16">
-              <el-select v-model="node.device" placeholder="">
-                <el-option label="设备1" value="5"></el-option>
-                <el-option label="设备2" value="4"></el-option>
-                <el-option label="设备3" value="3"></el-option>
-                <el-option label="设备4" value="2"></el-option>
-                <el-option label="设备5" value="1"></el-option>
-              </el-select>
+              <el-cascader
+                v-model="node.device"
+                :options="options"
+                :props="props"
+                clearable>
+              </el-cascader>
             </el-col>
           </el-row>
           <el-button type="primary" style="margin-left:60px" @click="handleChangeName()">确定</el-button>
@@ -136,6 +125,8 @@
 <script>
 import eventBus from "@/utils/eventBus";
 import Grid from "@antv/g6/build/grid";
+import pageService from './../../utils/pageService'
+let id =0;
 export default {
   data() {
     return {
@@ -145,7 +136,35 @@ export default {
       graph: {},
       item: {},
       node: {},
-      grid: null
+      grid: null,
+      options: [],
+      hasBind: false,
+      props: {
+        lazy: true,
+        lazyLoad (node, resolve) {
+          const { level } = node;
+          let idd = node.data.idd;
+          let nodes = [];
+          if (level==3) {
+              pageService.getResouceList(idd).then(res=>{
+              let data = res.data;
+              if(data && data['obj']){
+                data['obj'].forEach(item=>{
+                  nodes.push({
+                    label: item.resource_name,
+                    value: item.resource_id,
+                    leaf: true
+                  })
+                });
+              }
+            }).finally(()=>{
+              resolve(nodes)
+            })
+          } else {
+            resolve();
+          }          
+        }
+      }
     };
   },
   created() {
@@ -158,6 +177,42 @@ export default {
       this.node.color = '#eee';
       this.node.level =5;
       this.node.device = 5
+      pageService.getResouceTree().then((resData)=>{
+          let res = resData.data;
+          if(res && res['obj'] && res['obj'].length>0){
+              this.options = [
+                {
+                  label: '所有资源',
+                  value: '100',
+                  children: []
+                }
+              ]
+              res['obj'].map((item,index)=>{
+                this.options[0]['children'].push(
+                  {
+                    label:item.display_name,
+                    value:item.uid,
+                    idd: item.name,
+                    children:[]
+                  }
+                )
+                if(item['sub_types'] && item['sub_types'].length>0){
+                  item['sub_types'].map(sub=>{
+                    this.options[0]['children'][index]['children'].push(
+                      {
+                        label:sub.display_name,
+                        value:sub.uid,
+                        idd: sub.name,
+                        children:[]
+                      }
+                    )
+                  })
+                }
+              })
+
+            }
+        });
+
     },
     bindEvent() {
       let self = this;
@@ -169,10 +224,9 @@ export default {
             self.status = "node-selected";
             self.item = item.target;
             self.node = item.target.getModel();
-            self.node.fontSize = '12px arial, sans-serif, 文本字体';
-            self.node.color = '#eee';
-            self.node.level =5;
-            self.node.device = 5
+            if (self.node.device) {
+              this.hasBind = true;
+            }
           } else if(item.select === true && item.target.getType() === "edge"){
             self.status = "edge-selected";
             self.item = item.target;
@@ -191,10 +245,14 @@ export default {
       });
     },
     handleChangeName(e) {
-      const model = {
-        label: e
-      };
-
+      const { editor } = this.$parent;
+      let model = this.item.getModel();
+      pageService.updateNode(editor.tPageId, model.id, {
+        kind: model.node_type,
+        properties: {
+          device: model.device
+        }
+      })
       this.graph.update(this.item, model);
     },
     changeGridState(value) {
